@@ -28,7 +28,11 @@ public class TelegramBotUpdatesListener implements UpdatesListener {
     public int process(List<Update> updates) {
         updates.forEach(update -> {
             logger.info("Processing update: {}", update);
-            // Process your updates here
+            if (update.message().text() == "/ start") {
+                System.out.println("Приветствую в моем боте!");
+            } else {
+
+            }
         });
         return UpdatesListener.CONFIRMED_UPDATES_ALL;
     }
