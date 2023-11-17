@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
-@Table(name = "notifications")
+@Table(name = "notification_task")
 public class Notification {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
