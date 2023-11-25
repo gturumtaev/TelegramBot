@@ -4,8 +4,8 @@
 
 CREATE TABLE notification_task(
     id SERIAL PRIMARY KEY,
-    chatId INT NOT NULL,
+    chatId BIGINT NOT NULL,
     textNotification TEXT NOT NULL,
-    dataTime TIMESTAMP NOT NULL,
+    taskTime TIMESTAMP NOT NULL,
     note TEXT
 );

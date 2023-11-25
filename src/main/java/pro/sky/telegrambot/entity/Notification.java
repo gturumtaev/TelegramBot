@@ -17,7 +17,7 @@ public class Notification {
 
     private int chatId;
     private String notificationText;
-    private LocalDateTime dateTime;
+    private LocalDateTime taskTime;
     private String note;
 
     public Notification() {
@@ -47,12 +47,12 @@ public class Notification {
         this.notificationText = notificationText;
     }
 
-    public LocalDateTime getDateTime() {
-        return dateTime;
+    public LocalDateTime getTaskTime() {
+        return taskTime;
     }
 
-    public void setDateTime(LocalDateTime dateTime) {
-        this.dateTime = dateTime;
+    public void setTaskTime(LocalDateTime taskTime) {
+        this.taskTime = taskTime;
     }
 
     public String getNote() {
@@ -68,12 +68,12 @@ public class Notification {
         if (this == o) return true;
         if (!(o instanceof Notification)) return false;
         Notification that = (Notification) o;
-        return getChatId() == that.getChatId() && Objects.equals(getId(), that.getId()) && Objects.equals(getNotificationText(), that.getNotificationText()) && Objects.equals(getDateTime(), that.getDateTime()) && Objects.equals(getNote(), that.getNote());
+        return getChatId() == that.getChatId() && Objects.equals(getId(), that.getId()) && Objects.equals(getNotificationText(), that.getNotificationText()) && Objects.equals(getTaskTime(), that.getTaskTime()) && Objects.equals(getNote(), that.getNote());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getChatId(), getNotificationText(), getDateTime(), getNote());
+        return Objects.hash(getId(), getChatId(), getNotificationText(), getTaskTime(), getNote());
     }
 
     @Override
@@ -82,7 +82,7 @@ public class Notification {
                 "id=" + id +
                 ", chatId=" + chatId +
                 ", notificationText='" + notificationText + '\'' +
-                ", dateTime=" + dateTime +
+                ", taskTime=" + taskTime +
                 ", note='" + note + '\'' +
                 '}';
     }

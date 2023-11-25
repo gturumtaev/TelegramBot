@@ -50,12 +50,12 @@ public class TelegramBotUpdatesListener implements UpdatesListener {
             } else {
                 Matcher matcher = PATTERN.matcher(newMessage);
                 if (matcher.matches()) {
-                    String dataTime = matcher.group(1);
-                    String notificationText = matcher.group(2);
+                    String taskTime = matcher.group(1);
+                    String notificationText = matcher.group(3);
 
                     Notification notification = new Notification();
                     notification.setNotificationText(notificationText);
-                    notification.setDateTime(LocalDateTime.parse(dataTime, DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm")));
+                    notification.setTaskTime(LocalDateTime.parse(taskTime, DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm")));
                     notification.setChatId(chatId.intValue());
                     notificationRepository.save(notification);
                     String botAnswerTrue = "Напоминание будет отправлено в назначенное время";
