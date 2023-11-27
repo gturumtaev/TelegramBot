@@ -3,9 +3,9 @@
 --changeset gturumtaev:1
 
 CREATE TABLE notification_task(
-    id SERIAL PRIMARY KEY,
-    chatId BIGINT NOT NULL,
-    textNotification TEXT NOT NULL,
-    taskTime TIMESTAMP NOT NULL,
+    id BIGSERIAL PRIMARY KEY,
+    chat_id BIGINT NOT NULL,
+    notification_text TEXT NOT NULL,
+    task_time TIMESTAMP NOT NULL,
     note TEXT
 );

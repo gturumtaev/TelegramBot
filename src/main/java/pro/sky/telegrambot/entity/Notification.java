@@ -1,5 +1,6 @@
 package pro.sky.telegrambot.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,14 +14,25 @@ import java.util.Objects;
 public class Notification {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    private int chatId;
+    @Column(name = "id")
+    private long id;
+    @Column(name = "chat_id")
+    private long chatId;
+    @Column(name = "notification_text")
     private String notificationText;
+    @Column(name = "task_time")
     private LocalDateTime taskTime;
+    @Column(name = "note")
     private String note;
 
     public Notification() {
+    }
+
+    public Notification(long chatId, String notificationText, LocalDateTime taskTime, String note) {
+        this.chatId = chatId;
+        this.notificationText = notificationText;
+        this.taskTime = taskTime;
+        this.note = note;
     }
 
     public Long getId() {
@@ -31,7 +43,7 @@ public class Notification {
         this.id = id;
     }
 
-    public int getChatId() {
+    public long getChatId() {
         return chatId;
     }
 

@@ -2,13 +2,14 @@ package pro.sky.telegrambot.timer;
 
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import pro.sky.telegrambot.repository.NotificationRepository;
 import pro.sky.telegrambot.service.TelegramBotService;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 
-@Component
+@Service
 public class ScheduledNotification {
 
     private final NotificationRepository notificationRepository;
@@ -23,7 +24,7 @@ public class ScheduledNotification {
     public void findNotificationFromDb() {
         notificationRepository.findByTaskTime(LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES))
                 .forEach(e -> {
-                    telegramBotService.sendNotification((long) e.getChatId(), e.getNotificationText());
+                    telegramBotService.sendNotification(e.getChatId(), e.getNotificationText());
                 });
     }
 
