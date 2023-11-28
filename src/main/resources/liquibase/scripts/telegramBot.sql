@@ -1,8 +1,8 @@
 -- liquibase formatted sql
 
---changeset gturumtaev:1
+-- changeset gturumtaev:1
 
-CREATE TABLE notification_task(
+CREATE TABLE notification(
     id BIGSERIAL PRIMARY KEY,
     chat_id BIGINT NOT NULL,
     notification_text TEXT NOT NULL,
