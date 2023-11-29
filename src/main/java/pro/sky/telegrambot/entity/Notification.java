@@ -25,14 +25,14 @@ public class Notification {
     @Column(name = "note")
     private String note;
 
-    public Notification() {
-    }
-
     public Notification(long chatId, String notificationText, LocalDateTime taskTime, String note) {
         this.chatId = chatId;
         this.notificationText = notificationText;
         this.taskTime = taskTime;
         this.note = note;
+    }
+
+    public Notification() {
     }
 
     public Long getId() {
